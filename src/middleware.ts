@@ -1,6 +1,9 @@
+"use server";
+
 import { NextRequest, NextResponse } from "next/server";
 import { getCurrentSession } from "./lib/auth/session";
 import { UserRole } from "@/models/User";
+import { getMe } from "./lib/auth/me";
 
 const authProtectedRoutes = ["/auth/me"];
 const adminProtectedRoutes = ["/auth/all_users"];

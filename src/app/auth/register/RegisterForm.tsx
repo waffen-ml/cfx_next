@@ -2,7 +2,10 @@
 
 import { useActionState } from "react";
 import { useForm } from "react-hook-form";
-import { register as registerAction, RegisterFields } from "@/lib/auth/actions";
+import {
+    register as registerAction,
+    RegisterFields,
+} from "@/lib/auth/auth.actions";
 import FormSubmitButton from "@/components/FormSubmitButton";
 
 export default function RegisterForm() {

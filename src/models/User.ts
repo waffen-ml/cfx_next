@@ -18,6 +18,7 @@ interface IUser {
     email: string;
     role: UserRole;
     createdAt: Date;
+    avatar: mongoose.Types.ObjectId;
 }
 
 interface IUserMethods {
@@ -49,6 +50,10 @@ const userSchema = new Schema<IUser, IUserModel, IUserMethods>({
         type: Date,
         default: () => Date.now(),
     },
+    avatar: {
+        type: Schema.Types.ObjectId,
+        default: null,
+    },
 });
 
 userSchema.static("findByDTO", function (dto: UserDTO) {
@@ -72,5 +77,5 @@ const User =
     model<IUser, IUserModel>("User", userSchema);
 
 export default User;
-export type { UserDTO };
+export type { UserDTO, IUser };
 export { UserRole };

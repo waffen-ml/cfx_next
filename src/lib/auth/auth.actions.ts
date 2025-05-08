@@ -1,7 +1,7 @@
 "use server";
 
 import { z } from "zod";
-import dbConnect from "../dbConnect";
+import dbConnect from "../db";
 import User from "@/models/User";
 import bcrypt from "bcryptjs";
 import { createSession, deleteCurrentSession } from "./session";

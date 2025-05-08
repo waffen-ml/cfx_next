@@ -1,6 +1,6 @@
 "use client";
 
-import { createNewPost } from "@/lib/post/actions";
+import { createNewPost } from "@/lib/post/post.actions";
 import FormSubmitButton from "@/components/FormSubmitButton";
 
 export default function NewPostForm() {

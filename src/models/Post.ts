@@ -1,20 +1,20 @@
-import mongoose, { model, Model, Schema, ObjectId } from "mongoose";
+import mongoose, { model, Model, Schema, Types } from "mongoose";
 
 interface IPost {
     body: string;
-    authorId: ObjectId;
+    author: Types.ObjectId;
     createdAt: Date;
 }
 
 const postSchema = new Schema<IPost>({
     body: String,
-    authorId: {
+    author: {
         type: Schema.Types.ObjectId,
         ref: "User",
     },
     createdAt: {
         type: Date,
-        default: () => Date.now(),
+        default: () => new Date(),
     },
 });
 
@@ -22,3 +22,4 @@ const Post =
     (mongoose.models?.Post as Model<IPost>) || model<IPost>("Post", postSchema);
 
 export default Post;
+export type { IPost };

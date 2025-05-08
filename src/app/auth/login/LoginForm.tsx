@@ -2,7 +2,7 @@
 
 import { useActionState } from "react";
 import { useForm } from "react-hook-form";
-import { login, LoginFields } from "@/lib/auth/actions";
+import { login, LoginFields } from "@/lib/auth/auth.actions";
 import FormSubmitButton from "@/components/FormSubmitButton";
 import Link from "next/link";
 

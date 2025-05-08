@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { getMe } from "@/lib/auth/me";
-import { logout } from "@/lib/auth/actions";
+import { logout } from "@/lib/auth/auth.actions";
 
 export default async function SiteHeader() {
     const me = await getMe();

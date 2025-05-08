@@ -3,6 +3,9 @@ import { redirect } from "next/navigation";
 import { getMyId } from "@/lib/auth/me";
 import NewPostForm from "./NewPostForm";
 import Post from "@/models/Post";
+import PostElement from "@/components/Post/Post";
+import PostWrapper from "@/components/Post/PostWrapper";
+import Feed from "@/components/Feed";
 
 export default async function UserPage({
     params,
@@ -18,11 +21,12 @@ export default async function UserPage({
         return redirect("/");
     }
 
-    const posts = await Post.find({ authorId: user.id })
-        .populate("authorId")
-        .exec();
-
-    console.log(posts);
+    //const posts = await Post.find({ author: user.id })
+    //    .sort({ createdAt: -1 })
+    //    .populate<{
+    //        author: { name: string; tag: string };
+    //   }>("author")
+    //    .lean();
 
     return (
         <>
@@ -34,14 +38,7 @@ export default async function UserPage({
             <hr />
             {isMe && <NewPostForm />}
             <hr />
-            <div>
-                {posts.map((post) => (
-                    <div key={post.id}>
-                        <p></p>
-                        <p>{post.body}</p>
-                    </div>
-                ))}
-            </div>
+            <Feed userId={user.id} />
         </>
     );
 }
